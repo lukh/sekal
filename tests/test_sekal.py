@@ -18,10 +18,6 @@ class TestSekal(unittest.TestCase):
     def tearDown(self):
         """Tear down test fixtures, if any."""
 
-    def test_track(self):
-        """Test something."""
-        t = Track(None)
-        t[8] = 5
 
 
 

@@ -2,15 +2,10 @@
 
 """Console script for sekal."""
 import sys
-import click
 
 
-@click.command()
-def main(args=None):
+def main():
     """Console script for sekal."""
-    click.echo("Replace this message by putting your code into "
-               "sekal.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
     return 0
 
 
