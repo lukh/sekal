@@ -17,7 +17,7 @@ class Track(object):
 
     def call(self, step):
         if step in self.steps:
-            self.called(*self.steps[step])
+            self.called(*self.steps[step][0], **self.steps[step][1])
 
 
 class Sequencer(object):
