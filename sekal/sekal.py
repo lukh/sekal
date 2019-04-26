@@ -21,10 +21,10 @@ class Track(object):
 
 
 class Sequencer(object):
-    def __init__(self, tick_period_ms, number_of_ticks, auto_reload=False):
+    def __init__(self, tick_period_ms, time_total_s, auto_reload=False):
         self._tick_period_ms = tick_period_ms
         self._tracks = []
-        self._number_of_ticks = number_of_ticks
+        self._number_of_ticks = int(time_total_s / (tick_period_ms/1000.0))
         self._auto_reload = auto_reload
         self._running = False
 
@@ -48,7 +48,7 @@ class Sequencer(object):
                 tn = time.time()
         
                 for track in self._tracks:
-                    track.call(tick)
+                    track.call(tick * (self._tick_period_ms/1000.0))
         
                 wait = (self._tick_period_ms / 1000.0) - (time.time() - tn)
                 time.sleep(max(wait, 0))
